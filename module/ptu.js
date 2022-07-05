@@ -55,6 +55,7 @@ import { PTUSidebar } from "./sidebar/sidebar-form.js";
 import './utils/item-piles-compatibility-handler.js';
 import './utils/drag-ruler-compatibility-handler.js';
 import { ThrowPokeball } from './combat/effects/pokeball_effects.js';
+import { PTURestForm as RestForm } from "./forms/resting-form.js";
 
 export let debug = (...args) => { if (game.settings.get("ptu", "showDebugInfo") ?? false) console.log("DEBUG: FVTT PTU | ", ...args) };
 export let log = (...args) => console.log("FVTT PTU | ", ...args);
@@ -96,6 +97,7 @@ Hooks.once('init', function () {
     PlayPokemonCry,
     FinishDexDragPokemonCreation,
     ThrowPokeball,
+    RestForm,
     monGenerator: {
       ActorGenerator,
       CreateMonParser,

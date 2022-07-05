@@ -99,6 +99,7 @@ export default class MenuComponent extends Component {
                     break;
                 case "rest":
                     // Render rest pop-up
+                    return new game.ptu.RestForm(this.state.actor.id).render(true);
                     break;
             }
         })
