@@ -902,6 +902,9 @@ Hooks.on("preUpdateActor", async (oldActor, changes, options, sender) => {
   //tempHpMax
   changes.system.tempHp.max = changeValue(changes.system?.tempHp?.max, oldActor.system.tempHp.max);
 
+  //money
+  changes.system.money = changeValue(changes.system?.money, oldActor.system.money);
+  
   //check if level up form is turned off in settings
   const setting = game.settings.get("ptu", "levelUpScreen")
   if(!setting) return; // option turned off by GM
