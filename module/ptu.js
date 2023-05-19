@@ -59,6 +59,8 @@ import { PTRSearch } from "./ptr-search/ptr-search.js";
 import { PTUAutomationForm } from "./forms/automation-form.js";
 import { CalcLevel } from "./actor/calculations/level-up-calculator.js";
 import { PTULevelUpForm } from "./forms/level-up-form.js";
+//tests
+import { registerStatsCalculatorTests } from "./actor/calculations/stats-calculator.js";
 
 export let debug = logging.debug;
 export let log = logging.log;
@@ -554,6 +556,11 @@ Hooks.on("renderActorSheet", function (sheet, element, settings) {
     }
   }
 });
+
+/* -------------------------------------------- */
+/*  Testing Initialization                      */
+/* -------------------------------------------- */
+Hooks.on("quenchReady", (quench) => { registerStatsCalculatorTests(quench); });
 
 /* -------------------------------------------- */
 /*  Hotbar Macros                               */

@@ -85,7 +85,7 @@ function Dev(stats) {
     const standardDeviation = Math.sqrt(variance);
   
     return standardDeviation;
-  }
+}
 
 export function CalculatePTStatTotal(levelUpPoints, level, stats, {twistedPower, ignoreStages}, nature, isTrainer) {
 
@@ -174,4 +174,106 @@ export function CalculatePoisonedCondition(stats, ptuFlags) {
     /** TODO: Add Potent Venom check */
     stats.spdef.stage.mod -= 2;
     return stats;
+}
+
+
+/************************************/
+/*           Unit Tests             */
+/************************************/
+
+export function registerStatsCalculatorTests(quench)
+{
+    for(const batchFunction of [
+        Tests
+    ]) {
+        batchFunction(quench);
+    }
+}
+
+function Tests(quench) {
+    quench.registerBatch(
+        "ptu.module.actor.stats-calculator.dev-tests",
+        (context) => {
+            const {describe, it, expect} = context
+            describe("Dev Tests", function() {
+                it("standard devitaion of an array of 0s should be 0", function() {
+                    const stats = {
+                        "hp": {"levelUp": 0},
+                        "atk": {"levelUp": 0},
+                        "def": {"levelUp": 0},
+                        "spatk": {"levelUp": 0},
+                        "spdef": {"levelUp": 0},
+                        "spd": {"levelUp": 0}
+                    };
+
+                    const devResult = Dev(stats);
+                    
+                    expect(devResult).to.equal(0);
+                });
+                it("Single Focus level 10 attacker", function() {
+                    const stats = {
+                        "hp": {"levelUp": 0},
+                        "atk": {"levelUp": 10},
+                        "def": {"levelUp": 0},
+                        "spatk": {"levelUp": 0},
+                        "spdef": {"levelUp": 0},
+                        "spd": {"levelUp": 0}
+                    };
+
+                    const devResult = Dev(stats);
+                    
+                    expect(devResult).to.equal(3.726779962499649);
+                });
+                it("Mixed Attacker levl 50", function() {
+                    const stats = {
+                        "hp": {"levelUp": 0},
+                        "atk": {"levelUp": 25},
+                        "def": {"levelUp": 0},
+                        "spatk": {"levelUp": 25},
+                        "spdef": {"levelUp": 0},
+                        "spd": {"levelUp": 0}
+                    };
+
+                    const devResult = Dev(stats);
+                    expect(devResult).to.equal(11.785113019775793);
+                });
+            }),
+            describe("Poisoned Tests", function() {
+                it("not poisoned", function() {
+                    const stats = {
+                        "hp":{"stage": {"mod":0}},
+                        "atk":{"stage": {"mod":0}},
+                        "def":{"stage": {"mod":0}},
+                        "spatk":{"stage": {"mod":0}},
+                        "spdef":{"stage": {"mod":0}},
+                        "spd":{"stage": {"mod":0}}
+                    };
+                    const ptuFlags = {
+                        "is_poisoned": undefined
+                    };
+                   
+                    const spDefResult = CalculatePoisonedCondition(stats, ptuFlags).spdef.stage.mod;
+                    
+                    expect(spDefResult).to.equal(0);
+                });
+                it("poisoned", function() {
+                    const stats = {
+                        "hp":{"stage": {"mod":0}},
+                        "atk":{"stage": {"mod":0}},
+                        "def":{"stage": {"mod":0}},
+                        "spatk":{"stage": {"mod":0}},
+                        "spdef":{"stage": {"mod":0}},
+                        "spd":{"stage": {"mod":0}}
+                    };
+                    const ptuFlags = {
+                        "is_poisoned": true
+                    };
+                    const spDefResult = CalculatePoisonedCondition(stats, ptuFlags).spdef.stage.mod;
+
+                    expect(spDefResult).to.equal(-2);
+                });
+            })
+        },
+        { displayName: "ptu > module > actor > stats-calculator"}
+    );
 }
