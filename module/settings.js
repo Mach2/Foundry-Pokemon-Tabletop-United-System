@@ -404,6 +404,29 @@ export function LoadSystemSettings() {
         category: "other"
     });
 
+    game.settings.register("ptu", "PokemonShinySound", {
+        name: "Shiny Pokémon Sound Effect",
+        hint: "The sound effect that will play when a shiny Pokémon is encountered.",
+        scope: "world",
+        config: true,
+        type: String,
+        choices: { //TODO: find sounds for let's go and sun/moon
+            "": "None",
+            "systems/ptu/sounds/shiny_sparkles_sounds/Gen 2 Shiny Sparkles.mp3": "Gen 2 (Gold/Silver/Crystal)",
+            "systems/ptu/sounds/shiny_sparkles_sounds/Gen 3 Shiny Sparkles.mp3": "Gen 3 (Ruby/Sapphire/Emerald)",
+            "systems/ptu/sounds/shiny_sparkles_sounds/Gen 4 Shiny Sparkles.mp3": "Gen 4 (Diamond/Pearl/Platinum/Heart Gold/Soul Silver)",
+            "systems/ptu/sounds/shiny_sparkles_sounds/Gen 5 Shiny Sparkles.mp3": "Gen 5 (Black/White/Black 2/White 2)",
+            "systems/ptu/sounds/shiny_sparkles_sounds/Gen 6 Shiny Sparkles.mp3": "Gen 6 (X/Y/Omega Ruby/Alpha Sapphire)",
+            //"systems/ptu/sounds/shiny_sparkles_sounds/Gen 7 Shiny Sparkles.mp3": "Gen 7 (Sun/Moon/Ultra Sun/Ultra Moon)",
+            "systems/ptu/sounds/shiny_sparkles_sounds/Gen 8 Shiny Sparkles.mp3": "Gen 8 (Sword/Shield)",
+            "systems/ptu/sounds/shiny_sparkles_sounds/Gen 9 Shiny Sparkles.mp3": "Gen 9 (Scarlet/Violet)",
+            "systems/ptu/sounds/shiny_sparkles_sounds/legends-arceus-shiny-By-tuna.voicemod.net.mp3": "Legends Arceus",
+            //"systems/ptu/sounds/shiny_sparkles_sounds/": "Let's go Pikachu/Eevee",
+        },
+        default: 4,
+        category: "other"
+    })
+
     game.settings.register("ptu", "pokemonCryDirectory", {
         name: "Pokémon Cry Directory",
         hint: "The directory where the user can upload mp3 or wav files (named as the lowercase name of the pokémon).",

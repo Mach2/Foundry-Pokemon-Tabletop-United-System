@@ -720,7 +720,7 @@ async function _onPokedexMacro() {
   }
 }
 
-export async function PlayPokemonCry(species) {
+export async function PlayPokemonCry(species, shiny=false) {
   if (!species) return;
   if (game.settings.get("ptu", "playPokemonCriesOnDrop")) {
     let CryDirectory = game.settings.get("ptu", "pokemonCryDirectory");
@@ -728,14 +728,22 @@ export async function PlayPokemonCry(species) {
 
     const response_mp3 = await fetch(CryDirectory + SpeciesCryFilename + ".mp3");
     if (response_mp3.status >= 200 && response_mp3.status <= 299) {
-      AudioHelper.play({ src: CryDirectory + SpeciesCryFilename + ".mp3", volume: 0.8, autoplay: true, loop: false }, true);
+      await AudioHelper.play({ src: CryDirectory + SpeciesCryFilename + ".mp3", volume: 0.8, autoplay: true, loop: false }, true);
     }
     else {
       const response_wav = await fetch(CryDirectory + SpeciesCryFilename + ".wav");
       if (response_wav.status >= 200 && response_wav.status <= 299) {
-        AudioHelper.play({ src: CryDirectory + SpeciesCryFilename + ".wav", volume: 0.8, autoplay: true, loop: false }, true);
+        await AudioHelper.play({ src: CryDirectory + SpeciesCryFilename + ".wav", volume: 0.8, autoplay: true, loop: false }, true);
       }
     }
+  }
+
+  const shinySparkle = game.settings.get("ptu", "PokemonShinySound");
+  
+  if (shiny && shinySparkle != "") {
+    new Promise(resolve => setTimeout(resolve, 1000)).then(() => {
+      AudioHelper.play({src : shinySparkle, volume: 0.8, autoplay: true, loop: false}, true);
+    });    
   }
 }
 
