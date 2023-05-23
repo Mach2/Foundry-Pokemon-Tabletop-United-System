@@ -258,6 +258,55 @@
                     </div>
                   </div>
                 </div>
+                <div class="swsh-box mt-2 mb-2">
+                  <div class="swsh-header justify-content-center">
+                    <div class="row">
+                      <h3 for="system.equipment" class="mr-1">{{localize "PTU.Equipment"}}</h3>
+                    </div>
+                  </div>
+                  <div class="swsh-body ml-3 mr-3">
+                    <div class="row">
+                      <div class="col col equipment-items">
+                        <div>
+                          {{!-- body slot --}}
+                          <label for="system.equipment.body">{{localize "PTU.EquipmentBody"}}</label>
+                          <input type="text" name="system.equipment.body" value="{{data.equipment.body}}" data-dtype="String">
+                        </div>
+                        <div>
+                          {{!-- Off-hand slot --}}
+                          <label for="system.equipment.offhand">{{localize "PTU.EquipmentOffHand"}}</label>
+                          <input type="text" name="system.equipment.offhand" value="{{data.equipment.offhand}}" data-dtype="String">
+                        </div>
+                        <div>
+                          {{!-- Feet slot --}}
+                          <label for="system.equipment.feet">{{localize "PTU.EquipmentFeet"}}</label>
+                          <input type="text" name="system.equipment.feet" value="{{data.equipment.feet}}" data-dtype="String">
+                        </div>
+                      </div>
+                      <div class="col line-container">
+                        {{!-- Trainer Image --}}
+                        <img src="systems/ptu/images/trainer.png" alt="Equipment Image">
+                      </div>
+                      <div class="col equipment-items">
+                        <div>
+                          {{!-- Head slot --}}
+                          <label for="system.equipment.head">{{localize "PTU.EquipmentHead"}}</label>
+                          <input type="text" name="system.equipment.head" value="{{data.equipment.head}}" data-dtype="String">
+                        </div>
+                        <div>
+                          {{!-- Accessory slot --}}
+                          <label for="system.equipment.accessory">{{localize "PTU.EquipmentAccessory"}}</label>
+                          <input type="text" name="system.equipment.accessory" value="{{data.equipment.accessory}}" data-dtype="String">
+                        </div>
+                        <div>
+                          {{!-- Main-hand slot --}}
+                          <label for="system.equipment.mainhand">{{localize "PTU.EquipmentMainHand"}}</label>
+                          <input type="text" name="system.equipment.mainhand" value="{{data.equipment.mainhand}}" data-dtype="String">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

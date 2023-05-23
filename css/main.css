@@ -2495,6 +2495,11 @@ button.dialog-button {
   padding: 0 0.25rem;
   white-space: nowrap;
 }
+.equipment-items {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
 .w-25 {
   width: 25% !important;
 }

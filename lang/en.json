@@ -181,6 +181,13 @@
     "PTU.Money": "Money",
     "PTU.ItemCategories": "Item Categories",
     "PTU.HeldItem": "Held Item",
+    "PTU.Equipment": "Equipment",
+    "PTU.EquipmentBody": "Body",
+    "PTU.EquipmentOffHand": "Off Hand",
+    "PTU.EquipmentFeet": "Feet",
+    "PTU.EquipmentHead": "Head",
+    "PTU.EquipmentAccessory": "Accessory",
+    "PTU.EquipmentMainHand": "Main Hand",
 
     "PTU.Age": "Age",
     "PTU.Sex": "Sex",
