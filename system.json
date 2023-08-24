@@ -146,10 +146,10 @@
   "gridUnits": "m",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "exp",
-  "url": "https://github.com/dylanpiera/Foundry-Pokemon-Tabletop-United-System",  
-  "manifest": "https://github.com/dylanpiera/Foundry-Pokemon-Tabletop-United-System/raw/development/system.json",
-  "changelog": "https://github.com/dylanpiera/Foundry-Pokemon-Tabletop-United-System/raw/development/changelog.md",
-  "download": "https://github.com/dylanpiera/Foundry-Pokemon-Tabletop-United-System/archive/development.zip",
+  "url": "https://github.com/Mach2/Foundry-Pokemon-Tabletop-United-System",  
+  "manifest": "https://raw.githubusercontent.com/Mach2/Foundry-Pokemon-Tabletop-United-System/development/system.json",
+  "changelog": "https://raw.githubusercontent.com/Mach2/Foundry-Pokemon-Tabletop-United-System/development/changelog.md",
+  "download": "https://github.com/Mach2/Foundry-Pokemon-Tabletop-United-System/archive/development.zip",
   "initiative": "",
   "license": "LICENSE.txt"
 }
